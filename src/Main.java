@@ -7,7 +7,7 @@ public class Main {
         Bankaccount optima = new Bankaccount();
 
         Scanner scanner = new Scanner(System.in);
-        
+
         optima.deposit(20000.00);
 
         while (true) {
@@ -23,7 +23,9 @@ public class Main {
                 }
             } catch (LimitException error){
                 System.err.println(error.getMessage());
-                System.out.println("На вашем балансе " + optima.getAmount());
+                System.out.println(optima.getAmount() - optima.getAmount());
+                System.out.println("Вы обналичили весь остаток: " + optima.getAmount());
+                break;
             }
         }
     }
