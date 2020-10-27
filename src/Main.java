@@ -13,15 +13,18 @@ public class Main {
             int sum = scanner.nextInt();
             try {
                 optima.Withdraw(sum);
-
                 System.out.println("Ваш баланс: " + optima.getAmount());
-                if (optima.getAmount() ==0){
-                    break;
-                }
             } catch (LimitException error){
                 System.err.println(error.getMessage());
                 System.out.println("На вашем балансе только : " + optima.getAmount());
 
+                try {
+                    optima.Withdraw((int) (error.getRemainingAmount()));
+
+                } catch (LimitException error1){
+                    System.out.println(error.getMessage());
+                }
+                break;
             }
         }
     }
