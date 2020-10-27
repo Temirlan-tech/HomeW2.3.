@@ -13,7 +13,7 @@ public class Bankaccount {
 
     public void Withdraw(int sum) throws LimitException {
         if (sum > amount){
-            throw new LimitException("Не хватает средств для совершения данной операции ");
+            throw new LimitException("Не хватает средств для совершения данной операции !!!", amount);
         }
         amount = amount - sum;
         System.out.println("С вашего счета снято: " + sum);

@@ -5,15 +5,12 @@ public class Main {
     public static void main(String[] args) {
 
         Bankaccount optima = new Bankaccount();
-
         Scanner scanner = new Scanner(System.in);
-
         optima.deposit(20000.00);
 
         while (true) {
             System.out.println("Введите сумму: ");
             int sum = scanner.nextInt();
-
             try {
                 optima.Withdraw(sum);
 
@@ -23,9 +20,8 @@ public class Main {
                 }
             } catch (LimitException error){
                 System.err.println(error.getMessage());
-                System.out.println(optima.getAmount() - optima.getAmount());
-                System.out.println("Вы обналичили весь остаток: " + optima.getAmount());
-                break;
+                System.out.println("На вашем балансе только : " + optima.getAmount());
+
             }
         }
     }
